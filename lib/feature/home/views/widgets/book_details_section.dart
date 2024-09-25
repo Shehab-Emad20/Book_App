@@ -14,7 +14,10 @@ class BookDetailsSection extends StatelessWidget {
     return Column(children: [
       Padding(
         padding: EdgeInsets.symmetric(horizontal: width * .2),
-        child: const FeaturedListViewItem(),
+        child: const FeaturedListViewItem(
+          image:
+              'https://www.techsmith.com/blog/wp-content/uploads/2023/08/What-are-High-Resolution-Images.png',
+        ),
       ),
       const SizedBox(
         height: 43,

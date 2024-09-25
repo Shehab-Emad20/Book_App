@@ -13,7 +13,10 @@ class SimilarBookListView extends StatelessWidget {
           itemBuilder: (context, index) {
             return const Padding(
               padding: EdgeInsets.symmetric(horizontal: 5),
-              child: FeaturedListViewItem(),
+              child: FeaturedListViewItem(
+                image:
+                    'https://www.techsmith.com/blog/wp-content/uploads/2023/08/What-are-High-Resolution-Images.png',
+              ),
             );
           }),
     );

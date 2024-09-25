@@ -3,6 +3,7 @@ import 'package:bookly/core/utils/api_service.dart';
 import 'package:bookly/feature/home/data/models/book_model/book_model.dart';
 import 'package:bookly/feature/home/data/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 
 class HomeRepoImpl implements HomeRepo {
   final ApiService apiService;
@@ -20,12 +21,17 @@ class HomeRepoImpl implements HomeRepo {
       }
       return right(books);
     } catch (e) {
-      return left(SreverFailures());
+      if (e is DioException) {
+        return left(SreverFailures.fromDioError(e));
+      }
+
+      return left(SreverFailures(e.toString()));
     }
   }
 
   @override
   Future<Either<Failures, List<BookModel>>> fetchFeaturedBooks() {
+    // TODO: implement fetchFeaturedBooks
     throw UnimplementedError();
   }
 }

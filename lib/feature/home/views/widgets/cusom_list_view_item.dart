@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class FeaturedListViewItem extends StatelessWidget {
@@ -5,14 +6,12 @@ class FeaturedListViewItem extends StatelessWidget {
   final String image;
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(16),
+      child: AspectRatio(
         aspectRatio: 2.6 / 4,
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            image:
-                DecorationImage(fit: BoxFit.fill, image: NetworkImage(image)),
-          ),
-        ));
+        child: CachedNetworkImage(fit: BoxFit.fill, imageUrl: image),
+      ),
+    );
   }
 }

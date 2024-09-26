@@ -1,6 +1,6 @@
 import 'package:bookly/core/utils/widgets/custom_error_widget.dart';
 import 'package:bookly/core/utils/widgets/custom_loading_indicator.dart';
-import 'package:bookly/feature/home/presentaion/manger/Featured_book_cubit/featured_books_cubit.dart';
+import 'package:bookly/feature/home/presentation/manger/Featured_book_cubit/featured_books_cubit.dart';
 import 'package:bookly/feature/home/views/widgets/cusom_list_view_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,7 +23,8 @@ class FeaturedBooksListView extends StatelessWidget {
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: FeaturedListViewItem(
-                      image: state.books[index].volumeInfo.imageLinks.thumbnail,
+                      image:
+                          state.books[index].volumeInfo.imageLinks!.thumbnail,
                     ),
                   );
                 }),
